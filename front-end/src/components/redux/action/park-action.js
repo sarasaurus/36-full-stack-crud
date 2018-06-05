@@ -52,7 +52,6 @@ const parkDeleteRequest = park => (dispatch) => {
     });
 };
 const parkUpdateRequest = park => (dispatch) => {
-  // TODO: may need to fiddle around here
   return superagent.put(`${API_URL}/api/parks/${park._id}`)
     .send(park)
     .then((response) => {

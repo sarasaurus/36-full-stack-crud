@@ -13,13 +13,16 @@ class Dashboard extends React.Component {
     const { parks, parkCreate, parkDelete, parkUpdate } = this.props;
     return (
       <div className= "dashboard">
-      <h2>Create a Park</h2>
+      <div className="create-park">
+      <h1>Create a Park</h1>
       <ParkForm
       onComplete={ parkCreate }
       />
+      </div>
+      <h1>Parks:</h1>
       { parks.map((park) => {
        return (
-        <div key={park._id }>
+        <div className='park-item' key={park._id }>
         <p>{park.name}</p>
         <p>{park.city}</p>
         <button onClick={() => parkDelete(park)}>X</button>
