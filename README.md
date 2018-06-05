@@ -1,29 +1,20 @@
-![cf](http://i.imgur.com/7v5ASc8.png) 36: Async Actions
-===
+# React, Redux with asynchronous restful API requests using Thunk middleware
+**Author**: Sarah Bixler
+**Version**: 1.0.0
+## Overview
+This app allows users to perfrom full CRUD on a Mongo database using react/redux
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-	* Enable Travis CI in your repository
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
+## Architecture
+Node.js
+MongoDB
+Redux.js
+React.js
+Webpack
+Babel
+EsLint
+Jest
+SASS
 
-## Requirements  
-#### Feature Tasks 
-  * Create a frontend for your midterm project (Ideally) or lab-14-two-resource-api.
-  * You can also choose to use a comparable RESTful api that does not have auth (must permit full CRUD)
-  * You are only required to create CRUD operations for a single resource of your backend
-  * Use react/redux best practices
-  * Add reporter and thunk middleware to your redux store
-  * make async action creators for making ajax request to your backend
-  * make sync action creators from updating your app store
 
-#### Test
-	* Test your reducers and your components.
-
-## Stretch Goals
-  * Create full crud for two resources 
-
-#### Documentation  
-Write a description of the project in your README.md, including detailed instructions for how to build your app. In your frontend README.md add a code block with your frontend .env vars, and in your backend README.md add a code block with your backend .env vars. 
+## Change Log
+06-4-2018-- Front End implemented for MongoDB database
