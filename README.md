@@ -17,4 +17,4 @@ SASS
 
 
 ## Change Log
-06-4-2018-- Create a frontend for your midterm project (Ideally) or lab-14-two-resource-api.
+06-4-2018-- Front End implemented for MongoDB database
