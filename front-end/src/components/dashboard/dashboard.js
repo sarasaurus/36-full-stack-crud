@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ParkForm from '../park-form/park-form';
+import ParkItem from '../park-item/park-item'
 import * as parkActions from '../redux/action/park-action';
 
 class Dashboard extends React.Component {
@@ -26,7 +27,6 @@ class Dashboard extends React.Component {
         park={park}
         onComplete={ parkUpdate }
         />
-        {/* <button onClick={() => parkUpdate(park)}>edit</button> */}
         </div>
        );
       }) 
@@ -35,6 +35,7 @@ class Dashboard extends React.Component {
     );
   }
 }
+
 Dashboard.propTypes = {
   parkFetch: PropTypes.func,
   parkCreate: PropTypes.func,
@@ -58,3 +59,11 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 
 // parkFetchRequest, parkCreateRequest, parkDeleteRequest, parkUpdateRequest
+/*<ParkItem 
+parks = {parks}
+key={park._id}
+park={park}
+parkCreate={parkCreate}
+parkDestroy={ parkDelete }
+onComplete={ parkUpdate }
+/>*/

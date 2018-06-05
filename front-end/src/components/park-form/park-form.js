@@ -78,5 +78,4 @@ export default class ParkForm extends React.Component {
 ParkForm.propTypes = {
   onComplete: PropTypes.func,
   park: PropTypes.object,
-  buttonText: PropTypes.string,
 };
