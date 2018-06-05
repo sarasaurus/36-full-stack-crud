@@ -1,0 +1,17 @@
+@import 'normalize';
+@import 'base';
+
+.app {
+  display: block;
+  max-width: 90%;
+  margin: 10% auto;
+  }
+.dashboard{
+ margin-top: $spacing;
+ form {
+   
+ }
+  input {
+    margin: $spacing-sm /2;
+  }
+}
