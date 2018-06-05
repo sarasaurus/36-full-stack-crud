@@ -35,12 +35,10 @@ const parkFetchRequest = () => (dispatch) => {
 };
 
 const parkCreateRequest = park => (dispatch) => {
-  console.log(park, 'POST PARK');
   // this signature is required for the redux thunk to work!
   return superagent.post(`${API_URL}/api/parks`)
     .send(park)
     .then((response) => {
-      console.log(response.body, 'POST RESPONSE BODY');
       dispatch(parkCreate(response.body));
       return response;
     });
@@ -55,7 +53,8 @@ const parkDeleteRequest = park => (dispatch) => {
 };
 const parkUpdateRequest = park => (dispatch) => {
   // TODO: may need to fiddle around here
-  return superagent.put(`${API_URL}/api/lists/${park._id}`)
+  return superagent.put(`${API_URL}/api/parks/${park._id}`)
+    .send(park)
     .then((response) => {
       dispatch(parkUpdate(park));
       return response;

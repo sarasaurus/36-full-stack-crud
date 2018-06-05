@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import TreeForm from '../park-form/park-form';
+import ParkForm from '../park-form/park-form';
 import * as parkActions from '../redux/action/park-action';
 
 class Dashboard extends React.Component {
@@ -9,12 +9,12 @@ class Dashboard extends React.Component {
     this.props.parkFetch();
   }
   render() {
-    const { parks, parkCreate, parkDelete } = this.props;
+    const { parks, parkCreate, parkDelete, parkUpdate } = this.props;
     return (
       <div className= "dashboard">
       <h2>Create a Park</h2>
-      <TreeForm
-      onComplete={ parkCreate } // this is where the park shuld be passed in
+      <ParkForm
+      onComplete={ parkCreate }
       />
       { parks.map((park) => {
        return (
@@ -22,6 +22,11 @@ class Dashboard extends React.Component {
         <p>{park.name}</p>
         <p>{park.city}</p>
         <button onClick={() => parkDelete(park)}>X</button>
+        <ParkForm 
+        park={park}
+        onComplete={ parkUpdate }
+        />
+        {/* <button onClick={() => parkUpdate(park)}>edit</button> */}
         </div>
        );
       }) 
@@ -34,6 +39,7 @@ Dashboard.propTypes = {
   parkFetch: PropTypes.func,
   parkCreate: PropTypes.func,
   parkDelete: PropTypes.func,
+  parkUpdate: PropTypes.func,
   parks: PropTypes.array,
 };
 const mapStateToProps = (state) => {
@@ -45,6 +51,7 @@ const mapDispatchToProps = (dispatch) => ({
     parkFetch: ()=> dispatch(parkActions.parkFetchRequest()),
     parkCreate: park => dispatch(parkActions.parkCreateRequest(park)),
     parkDelete: park => dispatch(parkActions.parkDeleteRequest(park)),
+    parkUpdate: park => dispatch(parkActions.parkUpdateRequest(park)),
 });
 
 
