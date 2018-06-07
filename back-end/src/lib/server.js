@@ -1,5 +1,6 @@
 'use strict';
 
+import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import logger from './logger';
@@ -7,10 +8,10 @@ import parkRoutes from '../route/park-router';
 import treeRoutes from '../route/tree-router';
 import errorMiddleWare from './error-middleware';
 
-
 const app = express();
 let server = null;
 
+app.use(cors());
 app.use(parkRoutes);
 app.use(treeRoutes);
 app.all('*', (request, response) => {
