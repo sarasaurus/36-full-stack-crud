@@ -1,5 +1,9 @@
 import superagent from 'superagent';
 
+//------------------------------------------------------------------------------------------------------------
+// SYNC FUNCTIONS: they update the store
+//------------------------------------------------------------------------------------------------------------
+
 const parkFetch = park => ({
   type: 'PARK_FETCH',
   payload: park,
@@ -22,13 +26,17 @@ const parkDelete = park => ({
 
 });
 
-// async functions:
+//------------------------------------------------------------------------------------------------------------
+// ASYNC FUNCTIONS: --- an async 'action' is a function
+// the only way for these to work is to have the thunk middleware
+// after the data is returned, you must call the synchronous action to update/change the state
+//------------------------------------------------------------------------------------------------------------
 
-const parkFetchRequest = () => (dispatch) => {
+const parkFetchRequest = () => (dispatch) => {// this is the ASYNC part to query the API
   return superagent.get(`${API_URL}/api/parks`) // this will be the url to your own backend api
     .then((response) => {
       // you could do client side filtering here, but ideally you would filter out server side via query string ex lists?limit=10 or something
-      dispatch(parkFetch(response.body));
+      dispatch(parkFetch(response.body)); // this is your SYNCHRONOUS ACTION--to update the store
       return response;
     });
   // no need catch because of our front-end middleware with the try/catch
@@ -58,7 +66,6 @@ const parkUpdateRequest = park => (dispatch) => {
       dispatch(parkUpdate(park));
       return response;
     });
-  
 };
 
 export { parkFetchRequest, parkCreateRequest, parkDeleteRequest, parkUpdateRequest };

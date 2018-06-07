@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ParkForm from '../park-form/park-form';
-import ParkItem from '../park-item/park-item'
-import * as parkActions from '../redux/action/park-action';
+import ParkItem from '../park-item/park-item';
+import * as parkActions from '../../redux/action/park-action';
+import AuthLanding from '../auth-landing/auth-landing'
 
 class Dashboard extends React.Component {
   componentDidMount() {
